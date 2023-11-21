@@ -1,0 +1,50 @@
+.navbarContainer{
+    height: 60px;
+    width: 100%;
+    background-color: rgba(0, 34, 255, 0.646);
+    display: flex;
+align-items: center;
+padding-left: 12px;
+justify-content: space-between;
+    
+    
+}
+h1{
+background-color: transparent;
+    color: white;
+    cursor: pointer
+
+    ;
+    text-decoration: none;
+    font-size: 23px;
+}
+
+.link{
+    text-decoration: none;
+    background-color: transparent;
+}
+
+/* .navbarTitle{
+    display: flex;
+    background-color: transparent;
+    align-items: center;
+    width: 70%;
+    padding-left: 12px;
+} */
+
+.navbarHeading{
+    background-color: transparent;
+    align-items: center;
+    display: flex;
+    gap: 1rem;
+    padding-right: 2rem;
+
+}
+
+.subheading{
+background-color: transparent;
+cursor: pointer;
+color: white;
+letter-spacing: 1px;
+text-decoration: none;
+}

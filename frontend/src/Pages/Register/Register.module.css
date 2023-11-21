@@ -1,0 +1,10 @@
+.registerContainer{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: rgb(145, 149, 149);
+    height:auto;
+    min-height:100vh;
+
+}
+

@@ -1,0 +1,79 @@
+.registerContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+
+  }
+  
+  .container {
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    width: 30%;
+    padding: 1rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    height: 65%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .inputWrapper {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .subHeading {
+    margin-bottom: 5px;
+    font-size: 16px;
+  }
+  
+  .inputBox {
+    width: 100%;
+    padding: 8px;
+    font-size: 14px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    border: 1px solid grey;
+  }
+  
+  .btnWrapper {
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+  }
+  .forgetBtn{
+    padding: 10px;
+    color: #27ae60;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+
+  }
+  .forgetBtnWrapper{
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+    
+  }
+  
+  .LoginBtn {
+    padding: 10px;
+    background-color: #27ae60;
+    color: white;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  .registerBtn{
+    padding: 10px;
+    color: #27ae60;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  
