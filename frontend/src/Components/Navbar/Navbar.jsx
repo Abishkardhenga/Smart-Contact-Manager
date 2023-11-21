@@ -6,7 +6,7 @@ const Navbar = () => {
   return (
     <div className={styles.navbarContainer}>
       <Link className={styles.link} to="/">
-        <h1>Smart Contact Manager</h1>
+        <h1 className={styles.navTitle}>Smart Contact Manager</h1>
       </Link>
       <div className={styles.navbarHeading}>
         <Link to="/" className={styles.subheading}>

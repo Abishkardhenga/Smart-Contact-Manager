@@ -33,7 +33,7 @@ const Loginbox = () => {
         </div>
         <div className={styles.btnWrapper}>
           <button className={styles.LoginBtn}>Login</button>
-          <button className={styles.registerBtn}>Register here</button>
+          <button className={styles.registerBtn}>Register</button>
         </div>
         <div className={styles.forgetBtnWrapper}>
           <button className={styles.forgetBtn}>Forget Password</button>
