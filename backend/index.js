@@ -4,6 +4,14 @@ const dotenv = require("dotenv");
 dotenv.config();
 const database = require("./utilis/db");
 app.use(express.json());
+const cors = require("cors");
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+    methods: ["GET", "HEAD", "POST"],
+    credentials: true,
+  })
+);
 app.use(require("./routes"));
 database();
 

@@ -1,10 +1,23 @@
 import React, { useState } from "react";
 import styles from "./Registerbox.module.css";
+import axios from "axios";
 
 const Registerbox = () => {
   let [username, setUsername] = useState();
   let [email, setEmail] = useState();
   let [password, setPassword] = useState();
+  let api = "http://localhost:8000/register";
+
+  let RegisterFetch = async () => {
+    try {
+      await axios.post(api, { username, email, password });
+      setUsername("");
+      setEmail("");
+      setPassword("");
+    } catch (err) {
+      console.log("this is error", err);
+    }
+  };
   return (
     <div className={styles.registerContainer}>
       <div className={styles.container}>
@@ -45,7 +58,9 @@ const Registerbox = () => {
           />
         </div>
         <div className={styles.btnWrapper}>
-          <button className={styles.registerBtn}>Register</button>
+          <button onClick={RegisterFetch} className={styles.registerBtn}>
+            Register
+          </button>
         </div>
       </div>
     </div>
