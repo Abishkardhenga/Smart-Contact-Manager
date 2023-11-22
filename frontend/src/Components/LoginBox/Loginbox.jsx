@@ -1,9 +1,25 @@
 import React, { useState } from "react";
 import styles from "./Loginbox.module.css";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Loginbox = () => {
+  const navigate = useNavigate();
   let [email, setEmail] = useState();
   let [password, setPassword] = useState();
+  let api = "http://localhost:8000/login";
+  let loginValidation = async () => {
+    try {
+      await axios.post(api, { email, password });
+      setEmail("");
+      setPassword("");
+      alert("sucessfully logged in");
+      navigate("/");
+    } catch (err) {
+      console.log("this is error", err.response.data.message);
+      alert(err.response.data.message);
+    }
+  };
   return (
     <div className={styles.registerContainer}>
       <div className={styles.container}>
@@ -32,7 +48,9 @@ const Loginbox = () => {
           />
         </div>
         <div className={styles.btnWrapper}>
-          <button className={styles.LoginBtn}>Login</button>
+          <button onClick={loginValidation} className={styles.LoginBtn}>
+            Login
+          </button>
           <button className={styles.registerBtn}>Register</button>
         </div>
         <div className={styles.forgetBtnWrapper}>

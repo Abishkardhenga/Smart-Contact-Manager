@@ -14,6 +14,7 @@ const Registerbox = () => {
       setUsername("");
       setEmail("");
       setPassword("");
+      alert("user created successfully");
     } catch (err) {
       console.log("this is error", err);
     }
