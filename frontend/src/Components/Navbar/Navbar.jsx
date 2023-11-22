@@ -12,9 +12,7 @@ const Navbar = () => {
         <Link to="/" className={styles.subheading}>
           Home
         </Link>
-        <Link to="/about" className={styles.subheading}>
-          About
-        </Link>
+
         <Link to="/login" className={styles.subheading}>
           Login
         </Link>
