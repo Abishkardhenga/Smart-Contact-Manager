@@ -10,14 +10,20 @@
 }
 .profileIcon{
     width: 200px;
-    height: 200px;
+    height: 250px;
 }
 
-.adContactBtn{
-    background-color:rgba(0, 34, 255, 0.646) ;
+.addContactBtn{
+    background-color: rgba(0, 34, 255, 0.843);
     color: white;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 8px;
+    height: 70px;
+    width: 100%;
     letter-spacing: 1px;
 }
 .txt{
-    
+    font-style: italic;
 }
