@@ -1,0 +1,20 @@
+.Container{
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    min-height: 100vh;
+    width: 100%;
+    background-color: rgb(141 186 186 / 63%);
+}
+.bodyContainer{
+    display: flex;
+}
+
+.boxContent{
+    height: 90vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:white;
+}
