@@ -17,6 +17,18 @@ const CreateDetail = async (req, res) => {
     console.error("this is err", err);
   }
 };
-const GetContact = (req, res) => {};
+const GetContact = async (req, res) => {
+  try {
+    let data = await owner.find();
+
+    if (!data) {
+      res.status(400).json({ message: "data not found ", success: false });
+    } else {
+      res.status(200).json({ message: "all user ", data, success: true });
+    }
+  } catch (err) {
+    res.status(403).json({ message: "error created", err, success: false });
+  }
+};
 
 module.exports = { GetContact, CreateDetail };
