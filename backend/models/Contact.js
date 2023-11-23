@@ -4,31 +4,29 @@ const ContactSchema = new mongoose.Schema(
   {
     username: {
       type: String,
-      require: true,
+      required: true,
     },
     email: {
       type: String,
-      require: true,
+      required: true,
     },
     image: {
-      type: string,
-      require: true,
+      type: String,
+      default: "https://cdn-icons-png.flaticon.com/512/3135/3135715.png",
+      required: false,
     },
     phone: {
       type: Number,
-      require: true,
+      required: true,
     },
-    nickname: {
-      type: String,
-      require: true,
-    },
+
     profession: {
       type: String,
-      require: true,
+      required: true,
     },
     description: {
       type: String,
-      require: true,
+      required: true,
     },
     owner: {
       type: mongoose.Schema.Types.ObjectId,
