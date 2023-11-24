@@ -1,6 +1,7 @@
 import React from "react";
 import "./App.css";
 import Navbar from "./Components/Navbar/Navbar";
+import { Link } from "react-router-dom";
 
 const App = () => {
   return (
@@ -12,7 +13,9 @@ const App = () => {
           Start Collecting Your Contacts in a smarter way . We Provide very
           efficient and smarter way of handling contacts
         </p>
-        <button className="getStartedBtn">Get Started</button>
+        <Link to={"/user/addcontact"} className="getStartedBtn">
+          Get Started
+        </Link>
       </div>
     </div>
   );

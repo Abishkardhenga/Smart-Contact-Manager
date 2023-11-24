@@ -34,11 +34,13 @@ const GetContact = async (req, res) => {
 const DeleteUser = async (req, res) => {
   const { id } = req.params;
   try {
-    let data = owner.findByIdAndDelete(id);
+    let data = await owner.findByIdAndDelete(id);
     if (!data) {
       res.status(404).json({ message: "User not found", success: false });
     } else {
-      res.status(200).json({ message: "user deleted ", data, success: true });
+      res
+        .status(200)
+        .json({ message: "user successfully  deleted ", data, success: true });
     }
   } catch (err) {
     res.status(403).json({ message: "error deleting", err, success: false });
