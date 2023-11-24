@@ -48,4 +48,32 @@ const DeleteUser = async (req, res) => {
   }
 };
 
-module.exports = { GetContact, CreateDetail, DeleteUser };
+const UpdateUser = async (req, res) => {
+  const { id } = req.params;
+  try {
+    let data = await owner.findByIdAndUpdate(
+      id,
+      {
+        username: req.body.username,
+        image: req.body.image,
+        email: req.body.email,
+        phone: req.body.phone,
+        profession: req.body.profession,
+        description: req.body.description,
+      },
+      { new: true }
+    );
+    res
+      .status(200)
+      .json({ message: "user updated successfully", data, success: true });
+  } catch (err) {
+    console.log(err);
+    res.status(403).json({
+      message: "error occured while updating user",
+      err,
+      success: false,
+    });
+  }
+};
+
+module.exports = { GetContact, CreateDetail, DeleteUser, UpdateUser };
