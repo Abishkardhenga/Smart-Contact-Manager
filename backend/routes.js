@@ -1,4 +1,5 @@
 const { Register, Login } = require("./controllers/Auth");
+const { UpdateOwner } = require("./controllers/owner");
 const {
   GetContact,
   CreateDetail,
@@ -14,5 +15,6 @@ routes.post("/register", Register);
 routes.post("/login", Login);
 routes.delete("/deleteuser/:id", DeleteUser);
 routes.patch("/edituser/:id", UpdateUser);
+routes.patch("/updateowner/:id", UpdateOwner);
 
 module.exports = routes;

@@ -9,16 +9,21 @@ import AddContact from "./Pages/AddContact/AddContact.jsx";
 import Viewcontact from "./Pages/ViewContact/Viewcontact.jsx";
 import Setting from "./Pages/Setting/Setting.jsx";
 import Profile from "./Pages/Profile/Profile.jsx";
+import DashBoard from "./Pages/Dashboard/Dashboard.jsx";
+import Nouser from "./Components/Nouser/Nouser.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<App />} />
       <Route path="/login" element={<Login />} />
-      <Route path="/user/addcontact" element={<AddContact />} />
-      <Route path="/user/setting" element={<Setting />} />
-      <Route path="/user/viewcontact" element={<Viewcontact />} />
-      <Route path="/user/profile" element={<Profile />} />
+      <Route path="/dashboard" element={<DashBoard />}>
+        <Route path="addcontact" element={<Nouser />} />
+        <Route path="setting" element={<Setting />} />
+        <Route path="viewcontact" element={<Viewcontact />} />
+        <Route path="profile" element={<Profile />} />
+      </Route>
+
       <Route path="/Register" element={<Register />} />
     </Routes>
   </BrowserRouter>

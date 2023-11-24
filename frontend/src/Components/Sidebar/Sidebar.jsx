@@ -15,22 +15,22 @@ const Sidebar = () => {
 
         <p className={styles.sidebarPages}>Home</p>
       </Link>
-      <Link className={styles.iconWrapper}>
+      <Link className={styles.iconWrapper} to={"addcontact"}>
         <IoIosPersonAdd className={styles.icons} />
 
         <p className={styles.sidebarPages}>Add Contact</p>
       </Link>
-      <Link className={styles.iconWrapper}>
+      <Link className={styles.iconWrapper} to={"viewcontact"}>
         <FaAddressBook className={styles.icons} />
 
         <p className={styles.sidebarPages}>View Contact</p>
       </Link>
-      <Link className={styles.iconWrapper}>
+      <Link className={styles.iconWrapper} to={"profile"}>
         <CgProfile className={styles.icons} />
 
         <p className={styles.sidebarPages}>Your Profile</p>
       </Link>
-      <Link className={styles.iconWrapper}>
+      <Link className={styles.iconWrapper} to={"setting"}>
         <IoMdSettings className={styles.icons} />
 
         <p className={styles.sidebarPages}>Setting</p>

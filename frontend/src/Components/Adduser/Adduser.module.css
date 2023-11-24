@@ -1,0 +1,17 @@
+.adduserContainer{
+    background-color: red;
+    width: 90%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    
+}
+
+.container{
+    width: 50%;
+    height: 100%;
+    background-color:blue;
+}
