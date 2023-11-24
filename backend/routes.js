@@ -2,6 +2,7 @@ const { Register, Login } = require("./controllers/Auth");
 const { UpdateOwner } = require("./controllers/owner");
 const {
   GetContact,
+  GetContactbyId,
   CreateDetail,
   DeleteUser,
   UpdateUser,
@@ -10,6 +11,7 @@ const {
 const routes = require("express").Router();
 
 routes.get("/userdetail", GetContact);
+routes.get("/userdetail/:id", GetContactbyId);
 routes.post("/createuser", CreateDetail);
 routes.post("/register", Register);
 routes.post("/login", Login);

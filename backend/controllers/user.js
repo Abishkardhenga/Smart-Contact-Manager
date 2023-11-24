@@ -31,6 +31,23 @@ const GetContact = async (req, res) => {
   }
 };
 
+const GetContactbyId = async (req, res) => {
+  const { id } = req.params;
+  try {
+    let data = await owner.findById(id);
+    if (!data) {
+      res.status(403).json({ message: "No data found", success: false });
+    } else {
+      res
+        .status(200)
+        .json({ message: "This is the user", data, success: true });
+    }
+  } catch (err) {
+    console.log(err);
+    res.status(403).json({ message: "error occured", success: false });
+  }
+};
+
 const DeleteUser = async (req, res) => {
   const { id } = req.params;
   try {
@@ -76,4 +93,10 @@ const UpdateUser = async (req, res) => {
   }
 };
 
-module.exports = { GetContact, CreateDetail, DeleteUser, UpdateUser };
+module.exports = {
+  GetContact,
+  CreateDetail,
+  DeleteUser,
+  UpdateUser,
+  GetContactbyId,
+};
