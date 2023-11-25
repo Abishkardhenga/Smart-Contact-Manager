@@ -4,6 +4,8 @@
     gap: 0.5rem;
     text-decoration: none;
     padding: 1rem 1rem;
+    align-items: center;
+    
     cursor: pointer;
 
 }
