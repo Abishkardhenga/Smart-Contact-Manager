@@ -13,7 +13,7 @@ const App = () => {
           Start Collecting Your Contacts in a smarter way . We Provide very
           efficient and smarter way of handling contacts
         </p>
-        <Link to={"/dashboard/addcontact"} className="getStartedBtn">
+        <Link to={"/dashboard"} className="getStartedBtn">
           Get Started
         </Link>
       </div>
