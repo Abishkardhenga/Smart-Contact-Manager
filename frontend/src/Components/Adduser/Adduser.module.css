@@ -1,17 +1,72 @@
 .adduserContainer{
-    background-color: red;
-    width: 90%;
-    height: 90%;
+    width: 98%;
+    height: 98%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 
+    background-color: rgb(215, 212, 218);
     
 }
 
 .container{
     width: 50%;
     height: 100%;
-    background-color:blue;
+    display: flex;
+    gap: 1rem;
+padding: 1rem 4rem;
+    flex-direction: column;
+}
+.iconWrapper{
+height: 100%;
+width: 40px;
+border-radius: 8px;
+display: flex;
+justify-content: center;
+align-items: center;
+    background-color: aliceblue;
+}
+
+.icons{
+    height: 20px;
+    width: 23px;
+}
+
+.inputWrapper{
+display: flex;
+width: 100%;
+height: 40px;
+gap: 1rem;
+align-items: center;
+}
+
+.inputBox{
+    width: 80%;
+    border-radius: 8px;
+    height: 100%;
+    border: none;
+    border: 1px solid grey;
+
+    outline: none;
+    padding-left: 12px;
+
+}
+
+.buttonWrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.AddBtn{
+    width: 120px;
+    height: 36px;
+    border-radius: 8px;
+    color: white;
+    background-color: rgba(0, 34, 255, 0.646);
+    outline: none;
+    cursor: pointer;
+    border: none;
 }
