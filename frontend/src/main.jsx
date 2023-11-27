@@ -12,20 +12,23 @@ import Profile from "./Pages/Profile/Profile.jsx";
 import DashBoard from "./Pages/Dashboard/Dashboard.jsx";
 // import Nouser from "./Components/Nouser/Nouser.jsx";
 import Adduser from "./Components/Adduser/Adduser.jsx";
+import { UserContexProvider } from "./UseContext/Usecontext.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <BrowserRouter>
-    <Routes>
-      <Route path="/" element={<App />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/dashboard" element={<DashBoard />}>
-        <Route path="addcontact" element={<Adduser />} />
-        <Route path="setting" element={<Setting />} />
-        <Route path="viewcontact" element={<Viewcontact />} />
-        <Route path="profile" element={<Profile />} />
-      </Route>
+  <UserContexProvider>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<App />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/dashboard" element={<DashBoard />}>
+          <Route path="addcontact" element={<Adduser />} />
+          <Route path="setting" element={<Setting />} />
+          <Route path="viewcontact" element={<Viewcontact />} />
+          <Route path="profile" element={<Profile />} />
+        </Route>
 
-      <Route path="/Register" element={<Register />} />
-    </Routes>
-  </BrowserRouter>
+        <Route path="/Register" element={<Register />} />
+      </Routes>
+    </BrowserRouter>
+  </UserContexProvider>
 );
