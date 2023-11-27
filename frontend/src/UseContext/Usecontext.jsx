@@ -10,6 +10,7 @@ let reducer = (state, action) => {
   switch (action.type) {
     case "setUserdata ":
       return { ...state, userdata: action.payload };
+
     default:
       return state;
   }

@@ -15,8 +15,8 @@ import Adduser from "./Components/Adduser/Adduser.jsx";
 import { UserContexProvider } from "./UseContext/Usecontext.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <UserContexProvider>
-    <BrowserRouter>
+  <BrowserRouter>
+    <UserContexProvider>
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/login" element={<Login />} />
@@ -29,6 +29,6 @@ ReactDOM.createRoot(document.getElementById("root")).render(
 
         <Route path="/Register" element={<Register />} />
       </Routes>
-    </BrowserRouter>
-  </UserContexProvider>
+    </UserContexProvider>
+  </BrowserRouter>
 );

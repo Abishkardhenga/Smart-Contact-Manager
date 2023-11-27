@@ -1,20 +1,25 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import styles from "./Loginbox.module.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { UserInfo } from "../../UseContext/Usecontext";
 
 const Loginbox = () => {
-  const navigate = useNavigate();
   let [email, setEmail] = useState();
   let [password, setPassword] = useState();
   let api = "http://localhost:8000/login";
+  let { state, dispatch } = useContext(UserInfo);
+  const navigate = useNavigate();
   let loginValidation = async () => {
     try {
-      await axios.post(api, { email, password });
-      setEmail("");
-      setPassword("");
-      alert("sucessfully logged in");
-      navigate("/");
+      const { data, status } = await axios.post(api, { email, password });
+      if (status == "200") {
+        setEmail("");
+        setPassword("");
+        alert("sucessfully logged in");
+        dispatch({ type: "setUserdata", payload: data.data });
+        navigate("/", { state: data.data });
+      }
     } catch (err) {
       console.log("this is error", err.response.data.message);
       alert(err.response.data.message);

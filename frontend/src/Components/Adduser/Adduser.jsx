@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Adduser.module.css";
 import { IoIosPersonAdd } from "react-icons/io";
 import { IoMail } from "react-icons/io5";
@@ -6,6 +6,7 @@ import { LuPhone } from "react-icons/lu";
 import { RiProfileFill } from "react-icons/ri";
 import { MdDescription } from "react-icons/md";
 import { MdImage } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
 
 const Adduser = () => {
   const [username, setUsername] = useState();
@@ -15,6 +16,11 @@ const Adduser = () => {
   const [profession, setProfession] = useState();
   const [description, setDescription] = useState();
   const [owner, setOwner] = useState();
+  let { state } = useNavigate();
+
+  useEffect(() => {
+    console.log("this is state ", state);
+  }, []);
 
   return (
     <div className={styles.adduserContainer}>
