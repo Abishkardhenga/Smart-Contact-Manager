@@ -49,7 +49,7 @@ const Adduser = () => {
           </div>
           <input
             className={styles.inputBox}
-            placeholder="Enter the image"
+            placeholder="Drag or Enter the url"
             type="text"
           />
         </div>

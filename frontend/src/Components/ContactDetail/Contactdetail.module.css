@@ -1,0 +1,49 @@
+.contactdetailContainer{
+    display: flex;
+    width: 100%;
+    /* background-color: red; */
+    padding:0.25rem 2rem;
+    justify-content: space-between;
+}
+.iconsWrapper{
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+
+}
+
+
+.editIcon{
+    cursor: pointer;
+    height: 23px;
+    width: 23px;
+}
+.deleteIcon{
+    cursor: pointer;
+    color: red;
+    height: 23px;
+    width: 23px;
+}
+
+.id{
+    font-weight: 900;
+    font-size: 15px;
+}
+
+.name{
+    letter-spacing: 0.25px;
+    font-weight: bold;
+    font-size: 15px;
+
+}
+.email{
+    letter-spacing: 0.25px;
+    font-weight: bold; 
+    font-size: 15px;
+
+}
+.phone{
+    letter-spacing: 0.25px;
+    font-weight: bold; 
+    font-size: 15px;
+}

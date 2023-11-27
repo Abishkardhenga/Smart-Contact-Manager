@@ -42,6 +42,10 @@ const Profile = () => {
         <p className={styles.model}>Description:</p>
         <p className={styles.detail}> I do operation</p>
       </div>
+      <div className={styles.buttonWrapper}>
+        <button className={styles.deleteBtn}>Delete</button>
+        <button className={styles.updateBtn}>Update</button>
+      </div>
     </div>
   );
 };

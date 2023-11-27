@@ -46,7 +46,7 @@
   
   .registerBtn {
     padding: 10px;
-    background-color: #27ae60;
+    background-color: rgba(0, 34, 255, 0.646);
     color: white;
     cursor: pointer;
     border: none;

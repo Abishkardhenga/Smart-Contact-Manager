@@ -1,0 +1,41 @@
+.mainContainer{
+    display: flex;
+    height: 98%;
+    width: 98%;
+    background-color: white;
+    align-items: center;
+    flex-direction: column;
+}
+
+.labels{
+    display: flex;
+    width: 100%;
+    background-color: red;
+    justify-content: space-between;
+    padding: 0.25rem 2rem;
+}
+
+.bodyWrapper{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 1rem 2rem;
+    gap: 1rem;
+    /* justify-content: space-around; */
+}
+.inputBox{
+    width: 30%;
+    padding-left: 8px;
+    border: none;
+    height: 30px;
+    border-radius: 8px;
+    outline:none;
+    border: 0.5px solid grey;
+}
+
+.contactDetailWrapper{
+    background-color: aqua;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
