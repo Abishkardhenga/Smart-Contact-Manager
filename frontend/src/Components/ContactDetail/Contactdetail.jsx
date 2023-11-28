@@ -2,13 +2,14 @@ import React, { useContext } from "react";
 import styles from "./Contactdetail.module.css";
 import { MdDeleteForever } from "react-icons/md";
 import { FaUserEdit } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import { UserInfo } from "../../UseContext/Usecontext";
 import axios from "axios";
 
 const Contactdetail = ({ item }) => {
+  console.log("this is item", item);
   let { state, dispatch } = useContext(UserInfo);
   console.log("this is state", state);
-  console.log("this is state", state.userdata?._id);
   let id = " ";
   let handleEdit = () => {};
   let deleteApi = " http://localhost:8000/deleteuser";
@@ -23,7 +24,10 @@ const Contactdetail = ({ item }) => {
     }
   };
   return (
-    <div className={styles.contactdetailContainer}>
+    <Link
+      to={{ pathname: "/dashboard/profile", state: { item } }}
+      className={styles.contactdetailContainer}
+    >
       <p className={styles.id}>8888</p>
       <p className={styles.name}>{item?.username}</p>
       <p className={styles.email}>{item?.email}</p>
@@ -42,7 +46,7 @@ const Contactdetail = ({ item }) => {
           className={styles.deleteIcon}
         />
       </div>
-    </div>
+    </Link>
   );
 };
 

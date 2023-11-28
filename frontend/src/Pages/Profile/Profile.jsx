@@ -1,7 +1,10 @@
 import React from "react";
 import styles from "./Profile.module.css";
+import { useLocation } from "react-router-dom";
 
 const Profile = () => {
+  let { state } = useLocation();
+  console.log("this is state ", state);
   return (
     <div className={styles.profileContainer}>
       <div className={styles.imgWrapper}>
@@ -41,10 +44,6 @@ const Profile = () => {
       <div className={styles.detailWrapper}>
         <p className={styles.model}>Description:</p>
         <p className={styles.detail}> I do operation</p>
-      </div>
-      <div className={styles.buttonWrapper}>
-        <button className={styles.deleteBtn}>Delete</button>
-        <button className={styles.updateBtn}>Update</button>
       </div>
     </div>
   );
