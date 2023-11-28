@@ -13,7 +13,7 @@ let reducer = (state, action) => {
       return { ...state, userdata: action.payload };
 
     case "setGetContact":
-      return { ...state, getContact: action.payload };
+      return { ...state, GetContact: action.payload };
 
     default:
       return state;

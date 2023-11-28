@@ -16,8 +16,8 @@ const Contactdetail = ({ item }) => {
     try {
       let data = await axios.delete(`${deleteApi}/${id}`);
       console.log("this is", data);
-      GetAllContact();
       alert("usersuccessfully deleted");
+      state.GetContact();
     } catch (err) {
       console.log("this is an error", err);
     }
