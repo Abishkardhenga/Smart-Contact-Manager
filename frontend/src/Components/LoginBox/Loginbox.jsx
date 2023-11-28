@@ -18,7 +18,7 @@ const Loginbox = () => {
         setPassword("");
         alert("sucessfully logged in");
         dispatch({ type: "setUserdata", payload: data.data });
-        navigate("/", { state: data.data });
+        navigate("/dashboard");
       }
     } catch (err) {
       console.log("this is error", err.response.data.message);
