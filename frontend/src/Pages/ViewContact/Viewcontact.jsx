@@ -2,12 +2,16 @@ import React, { useEffect, useState } from "react";
 import styles from "./Viewcontact.module.css";
 import Contactdetail from "../../Components/ContactDetail/Contactdetail";
 import axios from "axios";
+import { useContext } from "react";
+import { UserInfo } from "../../UseContext/Usecontext";
 
 const Viewcontact = () => {
+  let { state, dispatch } = useContext(UserInfo);
   let api = "http://localhost:8000/userdetail";
   let [UserCollection, setUserCollection] = useState([]);
 
   useEffect(() => {
+    dispatch({ type: "setGetContact", payload: GetAllContact });
     GetAllContact();
   }, []);
   let GetAllContact = async () => {

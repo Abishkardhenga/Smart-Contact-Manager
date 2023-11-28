@@ -4,12 +4,16 @@ export let UserInfo = createContext();
 
 let user = {
   userdata: null,
+  GetContact: null,
 };
 
 let reducer = (state, action) => {
   switch (action.type) {
     case "setUserdata":
       return { ...state, userdata: action.payload };
+
+    case "setGetContact":
+      return { ...state, getContact: action.payload };
 
     default:
       return state;

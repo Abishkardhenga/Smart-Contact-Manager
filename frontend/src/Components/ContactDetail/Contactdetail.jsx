@@ -8,7 +8,7 @@ import axios from "axios";
 const Contactdetail = ({ item }) => {
   let { state, dispatch } = useContext(UserInfo);
   console.log("this is state", state);
-  console.log("this is state", state.userdata._id);
+  console.log("this is state", state.userdata?._id);
   let id = " ";
   let handleEdit = () => {};
   let deleteApi = " http://localhost:8000/deleteuser";
@@ -24,7 +24,7 @@ const Contactdetail = ({ item }) => {
   };
   return (
     <div className={styles.contactdetailContainer}>
-      <p className={styles.id}>Cd1200</p>
+      <p className={styles.id}>8888</p>
       <p className={styles.name}>{item?.username}</p>
       <p className={styles.email}>{item?.email}</p>
       <p className={styles.phone}>{item?.phone}</p>
