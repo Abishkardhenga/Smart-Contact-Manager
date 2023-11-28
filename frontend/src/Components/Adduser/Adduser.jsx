@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import styles from "./Adduser.module.css";
 import { IoIosPersonAdd } from "react-icons/io";
@@ -8,28 +8,46 @@ import { RiProfileFill } from "react-icons/ri";
 import { MdDescription } from "react-icons/md";
 import { MdImage } from "react-icons/md";
 import { useLocation } from "react-router-dom";
+import { UserInfo } from "../../UseContext/Usecontext";
 
 const Adduser = () => {
   let api = "http://localhost:8000/createuser";
-  const [username, setUsername] = useState();
-  const [email, setEmail] = useState();
-  const [image, setImage] = useState();
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [image, setImage] = useState("");
   const [phone, setPhone] = useState();
-  const [profession, setProfession] = useState();
-  const [description, setDescription] = useState();
+  const [profession, setProfession] = useState("");
+  const [description, setDescription] = useState("");
+  const [owner, setOwner] = useState();
+  let { state, dispatch } = useContext(UserInfo);
+  console.log("this is  state", state);
+  console.log("this is  userdate state id", state.userdata._id);
+  useEffect(() => {
+    setOwner(state.userdata._id);
+  }, []);
 
   let handleAdd = async () => {
     try {
-      await axios.post(api, {
+      const response = await axios.post(api, {
         username,
         email,
         image,
         phone,
         profession,
         description,
+        owner,
       });
+      setUsername("");
+      setEmail("");
+      setImage("");
+      setPhone("");
+      setProfession("");
+      setDescription("");
+
+      alert("successfuly created");
+      console.log("this is response", response);
     } catch (err) {
-      console.log(err);
+      console.log("err", err);
     }
   };
 
@@ -48,7 +66,8 @@ const Adduser = () => {
             type="text"
             value={username}
             onChange={(e) => {
-              setUsername;
+              console.log("Input value:", e.target.value);
+              setUsername(e.target.value);
             }}
           />
         </div>
@@ -93,9 +112,7 @@ const Adduser = () => {
             type="number"
             value={phone}
             onChange={(e) => {
-              setPhone((e) => {
-                setPhone(e.target.value);
-              });
+              setPhone(e.target.value);
             }}
           />
         </div>

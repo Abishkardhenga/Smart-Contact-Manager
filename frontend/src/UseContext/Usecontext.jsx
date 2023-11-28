@@ -8,7 +8,7 @@ let user = {
 
 let reducer = (state, action) => {
   switch (action.type) {
-    case "setUserdata ":
+    case "setUserdata":
       return { ...state, userdata: action.payload };
 
     default:

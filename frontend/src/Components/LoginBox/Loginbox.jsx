@@ -9,6 +9,7 @@ const Loginbox = () => {
   let [password, setPassword] = useState();
   let api = "http://localhost:8000/login";
   let { state, dispatch } = useContext(UserInfo);
+
   const navigate = useNavigate();
   let loginValidation = async () => {
     try {
@@ -17,8 +18,9 @@ const Loginbox = () => {
         setEmail("");
         setPassword("");
         alert("sucessfully logged in");
+        console.log("this is login data", data);
         dispatch({ type: "setUserdata", payload: data.data });
-        navigate("/dashboard");
+        navigate("/");
       }
     } catch (err) {
       console.log("this is error", err.response.data.message);
