@@ -1,16 +1,23 @@
-import React from "react";
+import React, { useContext } from "react";
 import styles from "./Contactdetail.module.css";
 import { MdDeleteForever } from "react-icons/md";
 import { FaUserEdit } from "react-icons/fa";
+import { UserInfo } from "../../UseContext/Usecontext";
+import axios from "axios";
 
-const Contactdetail = () => {
+const Contactdetail = ({ item }) => {
+  let { state, dispatch } = useContext(UserInfo);
+  console.log("this is state", state);
+  console.log("this is state", state.userdata._id);
   let id = " ";
   let handleEdit = () => {};
-  let deleteApi = ` http://localhost:8000/deleteuser/${id}`;
+  let deleteApi = " http://localhost:8000/deleteuser";
   let handleDelete = async (id) => {
     try {
-      let data = await axios.delete(id);
+      let data = await axios.delete(`${deleteApi}/${id}`);
       console.log("this is", data);
+      GetAllContact();
+      alert("usersuccessfully deleted");
     } catch (err) {
       console.log("this is an error", err);
     }
@@ -18,19 +25,19 @@ const Contactdetail = () => {
   return (
     <div className={styles.contactdetailContainer}>
       <p className={styles.id}>Cd1200</p>
-      <p className={styles.name}>Akshya thapa</p>
-      <p className={styles.email}>Thapaakshya@gmail.com</p>
-      <p className={styles.phone}>9848484484</p>
+      <p className={styles.name}>{item?.username}</p>
+      <p className={styles.email}>{item?.email}</p>
+      <p className={styles.phone}>{item?.phone}</p>
       <div className={styles.iconsWrapper}>
         <FaUserEdit
           onClick={() => {
-            handlEdit(_id);
+            handleEdit(_id);
           }}
           className={styles.editIcon}
         />
         <MdDeleteForever
           onClick={() => {
-            handleDelete(_id);
+            handleDelete(item._id);
           }}
           className={styles.deleteIcon}
         />
