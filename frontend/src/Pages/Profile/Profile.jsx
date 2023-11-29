@@ -43,7 +43,7 @@ const Profile = () => {
       {/* Description  */}
       <div className={styles.detailWrapper}>
         <p className={styles.model}>Description:</p>
-        <p className={styles.detail}> I do operation</p>
+        <p className={styles.detail}> operation</p>
       </div>
     </div>
   );
