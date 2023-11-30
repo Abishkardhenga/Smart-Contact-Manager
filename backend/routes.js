@@ -19,6 +19,6 @@ routes.post("/login", Login);
 routes.delete("/deleteuser/:id", DeleteUser);
 routes.patch("/edituser/:id", UpdateUser);
 routes.patch("/updateowner/:id", UpdateOwner);
-routes.get("/search", SearchbyName);
+routes.get("/search/:username", SearchbyName);
 
 module.exports = routes;

@@ -93,16 +93,36 @@ const UpdateUser = async (req, res) => {
   }
 };
 const SearchbyName = async (req, res) => {
-  const { name } = req.body;
+  const { username } = req.params;
 
   try {
-    const data = owner.find();
-    if (!data) {
-      res.status(403).json({ message: "No data found", success: false });
+    const data = await owner.find();
+
+    if (data.length === 0) {
+      return res.status(404).json({ message: "No data found", success: false });
     }
-    if(data.StartsWith(name))
+
+    const searchedItem = data.filter((item) =>
+      item.username.toLowerCase().startsWith(username.toLowerCase())
+    );
+
+    if (searchedItem.length === 0) {
+      return res.status(404).json({
+        message: "No related data found",
+        success: false,
+      });
+    }
+
+    return res
+      .status(200)
+      .json({
+        message: "Successfully found the data",
+        searchedItem,
+        success: true,
+      });
   } catch (err) {
-    console.log(err);
+    console.error(err);
+    return res.status(500).json({ message: "Error occurred", success: false });
   }
 };
 
