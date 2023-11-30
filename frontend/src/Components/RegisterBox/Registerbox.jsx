@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styles from "./Registerbox.module.css";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const Registerbox = () => {
   let [username, setUsername] = useState();
@@ -14,9 +15,17 @@ const Registerbox = () => {
       setUsername("");
       setEmail("");
       setPassword("");
-      alert("user created successfully");
+      toast.success("user successfully registered", {
+        position: "top-right",
+        autoClose: 1000,
+      });
     } catch (err) {
       console.log("this is error", err);
+      console.log("this is error response", err.response);
+      toast.error(`${err.response.data.message}`, {
+        position: "top-right",
+        autoClose: 1000,
+      });
     }
   };
   return (

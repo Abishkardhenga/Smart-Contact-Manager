@@ -2,7 +2,8 @@ import React, { useContext } from "react";
 import "./App.css";
 import Navbar from "./Components/Navbar/Navbar";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { UserInfo } from "./UseContext/Usecontext";
+import { UserInfo } from "./utilis/UseContext/Usecontext";
+
 
 const App = () => {
   let { state, dispatch } = useContext(UserInfo);

@@ -2,9 +2,9 @@ import React, { useContext } from "react";
 import styles from "./Contactdetail.module.css";
 import { MdDeleteForever } from "react-icons/md";
 import { FaUserEdit } from "react-icons/fa";
-import { Link } from "react-router-dom";
-import { UserInfo } from "../../UseContext/Usecontext";
+import { UserInfo } from "../../utilis/UseContext/Usecontext";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const Contactdetail = ({ item }) => {
   console.log("this is item", item);
@@ -17,17 +17,20 @@ const Contactdetail = ({ item }) => {
     try {
       let data = await axios.delete(`${deleteApi}/${id}`);
       console.log("this is", data);
-      alert("usersuccessfully deleted");
+      toast.success("Successfully deleted ", {
+        position: "top-right",
+        autoClose: 1000,
+      });
       state.GetContact();
     } catch (err) {
-      console.log("this is an error", err);
+      toast.error(`{err.response.data.message}`, {
+        position: "top-right",
+        autoClose: 1000,
+      });
     }
   };
   return (
-    <Link
-      to={{ pathname: "/dashboard/profile", state: { item } }}
-      className={styles.contactdetailContainer}
-    >
+    <div className={styles.contactdetailContainer}>
       <p className={styles.id}>8888</p>
       <p className={styles.name}>{item?.username}</p>
       <p className={styles.email}>{item?.email}</p>
@@ -46,7 +49,7 @@ const Contactdetail = ({ item }) => {
           className={styles.deleteIcon}
         />
       </div>
-    </Link>
+    </div>
   );
 };
 

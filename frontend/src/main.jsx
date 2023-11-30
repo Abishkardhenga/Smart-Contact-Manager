@@ -10,13 +10,15 @@ import Viewcontact from "./Pages/ViewContact/Viewcontact.jsx";
 import Setting from "./Pages/Setting/Setting.jsx";
 import Profile from "./Pages/Profile/Profile.jsx";
 import DashBoard from "./Pages/Dashboard/Dashboard.jsx";
-// import Nouser from "./Components/Nouser/Nouser.jsx";
 import Adduser from "./Components/Adduser/Adduser.jsx";
-import { UserContexProvider } from "./UseContext/Usecontext.jsx";
+import { UserContexProvider } from "./utilis/UseContext/Usecontext.jsx";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <BrowserRouter>
     <UserContexProvider>
+      <ToastContainer />
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/login" element={<Login />} />

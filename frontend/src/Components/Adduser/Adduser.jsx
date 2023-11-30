@@ -8,7 +8,8 @@ import { RiProfileFill } from "react-icons/ri";
 import { MdDescription } from "react-icons/md";
 import { MdImage } from "react-icons/md";
 import { useLocation } from "react-router-dom";
-import { UserInfo } from "../../UseContext/Usecontext";
+import { UserInfo } from "../../utilis/UseContext/Usecontext";
+import { toast } from "react-toastify";
 
 const Adduser = () => {
   let api = "http://localhost:8000/createuser";
@@ -43,10 +44,17 @@ const Adduser = () => {
       setPhone("");
       setProfession("");
       setDescription("");
-
-      alert("successfuly created");
-      console.log("this is response", response);
+      toast.success("Succesfully stored the deatails", {
+        position: "top-right",
+        autoClose: 1000,
+      });
+      // alert("successfuly created");
+      // console.log("this is response", response);
     } catch (err) {
+      toast.error(`{err.response.data.message}`, {
+        position: "top-right",
+        autoClose: 1000,
+      });
       console.log("err", err);
     }
   };

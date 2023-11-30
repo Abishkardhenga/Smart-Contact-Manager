@@ -2,7 +2,8 @@ import React, { useContext, useState } from "react";
 import styles from "./Loginbox.module.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { UserInfo } from "../../UseContext/Usecontext";
+import { UserInfo } from "../../utilis/UseContext/Usecontext";
+import { toast } from "react-toastify";
 
 const Loginbox = () => {
   let [email, setEmail] = useState();
@@ -17,14 +18,20 @@ const Loginbox = () => {
       if (status == "200") {
         setEmail("");
         setPassword("");
-        alert("sucessfully logged in");
+        toast.success("successfully Logined", {
+          position: "top-right",
+          autoClose: 1000,
+        });
+        // alert("sucessfully logged in");
         console.log("this is login data", data);
         dispatch({ type: "setUserdata", payload: data.data });
         navigate("/");
       }
     } catch (err) {
-      console.log("this is error", err.response.data.message);
-      alert(err.response.data.message);
+      toast.error(`${err.response.data.message}`, {
+        position: "top-right",
+        autoClose: 1000,
+      });
     }
   };
   return (

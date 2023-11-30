@@ -3,7 +3,7 @@ import styles from "./Viewcontact.module.css";
 import Contactdetail from "../../Components/ContactDetail/Contactdetail";
 import axios from "axios";
 import { useContext } from "react";
-import { UserInfo } from "../../UseContext/Usecontext";
+import { UserInfo } from "../../utilis/UseContext/Usecontext";
 
 const Viewcontact = () => {
   let { state, dispatch } = useContext(UserInfo);
