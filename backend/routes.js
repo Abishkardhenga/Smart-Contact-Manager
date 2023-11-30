@@ -5,6 +5,7 @@ const {
   GetContactbyId,
   CreateDetail,
   DeleteUser,
+  SearchbyName,
   UpdateUser,
 } = require("./controllers/user");
 
@@ -18,5 +19,6 @@ routes.post("/login", Login);
 routes.delete("/deleteuser/:id", DeleteUser);
 routes.patch("/edituser/:id", UpdateUser);
 routes.patch("/updateowner/:id", UpdateOwner);
+routes.get("/search", SearchbyName);
 
 module.exports = routes;

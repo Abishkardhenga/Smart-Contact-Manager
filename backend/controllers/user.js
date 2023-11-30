@@ -92,9 +92,23 @@ const UpdateUser = async (req, res) => {
     });
   }
 };
+const SearchbyName = async (req, res) => {
+  const { name } = req.body;
+
+  try {
+    const data = owner.find();
+    if (!data) {
+      res.status(403).json({ message: "No data found", success: false });
+    }
+    if(data.StartsWith(name))
+  } catch (err) {
+    console.log(err);
+  }
+};
 
 module.exports = {
   GetContact,
+  SearchbyName,
   CreateDetail,
   DeleteUser,
   UpdateUser,
