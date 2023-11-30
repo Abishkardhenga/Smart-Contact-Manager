@@ -5,6 +5,7 @@ export let UserInfo = createContext();
 let user = {
   userdata: null,
   GetContact: null,
+  ProfileData: null,
 };
 
 let reducer = (state, action) => {
@@ -14,6 +15,8 @@ let reducer = (state, action) => {
 
     case "setGetContact":
       return { ...state, GetContact: action.payload };
+    case "setProfileData":
+      return { ...state, ProfileData: action.payload };
 
     default:
       return state;

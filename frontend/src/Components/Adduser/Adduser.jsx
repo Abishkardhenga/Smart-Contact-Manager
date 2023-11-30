@@ -22,9 +22,9 @@ const Adduser = () => {
   const [owner, setOwner] = useState();
   let { state, dispatch } = useContext(UserInfo);
   console.log("this is  state", state);
-  console.log("this is  userdate state id", state.userdata._id);
+  // console.log("this is  userdate state id", state?.userdata?._id);
   useEffect(() => {
-    setOwner(state.userdata._id);
+    setOwner(state?.userdata?._id);
   }, []);
 
   let handleAdd = async () => {

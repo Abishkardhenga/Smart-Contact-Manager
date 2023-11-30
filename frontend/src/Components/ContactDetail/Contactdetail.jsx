@@ -4,19 +4,20 @@ import { MdDeleteForever } from "react-icons/md";
 import { FaUserEdit } from "react-icons/fa";
 import { UserInfo } from "../../utilis/UseContext/Usecontext";
 import axios from "axios";
+import { CgProfile } from "react-icons/cg";
+import { Link } from "react-router-dom";
+
 import { toast } from "react-toastify";
 
 const Contactdetail = ({ item }) => {
   console.log("this is item", item);
   let { state, dispatch } = useContext(UserInfo);
-  console.log("this is state", state);
   let id = " ";
   let handleEdit = () => {};
   let deleteApi = " http://localhost:8000/deleteuser";
   let handleDelete = async (id) => {
     try {
       let data = await axios.delete(`${deleteApi}/${id}`);
-      console.log("this is", data);
       toast.success("Successfully deleted ", {
         position: "top-right",
         autoClose: 1000,
@@ -29,9 +30,21 @@ const Contactdetail = ({ item }) => {
       });
     }
   };
+  let dataTransfer = (item) => {
+    console.log("this is datatransfer", item);
+    dispatch({ type: "setProfileData", payload: item });
+    alert("button clicked");
+  };
   return (
     <div className={styles.contactdetailContainer}>
-      <p className={styles.id}>8888</p>
+      <Link to={"/dashboard/profile"} className={styles.id}>
+        <CgProfile
+          onClick={() => {
+            dataTransfer(item);
+          }}
+          className={styles.profile}
+        />
+      </Link>
       <p className={styles.name}>{item?.username}</p>
       <p className={styles.email}>{item?.email}</p>
       <p className={styles.phone}>{item?.phone}</p>
