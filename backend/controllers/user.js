@@ -113,13 +113,11 @@ const SearchbyName = async (req, res) => {
       });
     }
 
-    return res
-      .status(200)
-      .json({
-        message: "Successfully found the data",
-        searchedItem,
-        success: true,
-      });
+    return res.status(200).json({
+      message: "Successfully found the data",
+      searchedItem,
+      success: true,
+    });
   } catch (err) {
     console.error(err);
     return res.status(500).json({ message: "Error occurred", success: false });

@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 
 const Contactdetail = ({ item }) => {
-  console.log("this is item", item);
+  // console.log("this is item", item);
   let { state, dispatch } = useContext(UserInfo);
   let id = " ";
   let handleEdit = () => {};
