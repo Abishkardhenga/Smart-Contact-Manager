@@ -37,16 +37,15 @@ align-items: center;
 display: flex;
 width: 100%;
 height: 40px;
-gap: 1rem;
 align-items: center;
+border:0.5px solid grey;
+border-radius: 7px;
 }
 
 .inputBox{
     width: 80%;
-    border-radius: 8px;
     height: 100%;
     border: none;
-    border: 1px solid grey;
 
     outline: none;
     padding-left: 12px;
