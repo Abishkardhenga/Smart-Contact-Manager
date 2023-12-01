@@ -10,9 +10,18 @@ import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 
 const Contactdetail = ({ item }) => {
+  let id = "";
   let { state, dispatch } = useContext(UserInfo);
-  let handleEdit = () => {};
+  let editApi = `http://localhost:8000/edituser/${id}`;
   let deleteApi = " http://localhost:8000/deleteuser";
+  let handleEdit = (item) => {
+    console.log("this is handleEdit", item);
+    dispatch({ type: "setEditingContact", payload: item });
+
+    console.log("this is state", state);
+    state.
+  };
+
   let handleDelete = async (id) => {
     try {
       let data = await axios.delete(`${deleteApi}/${id}`);
@@ -47,7 +56,7 @@ const Contactdetail = ({ item }) => {
       <div className={styles.iconsWrapper}>
         <FaUserEdit
           onClick={() => {
-            handleEdit(_id);
+            handleEdit(item);
           }}
           className={styles.editIcon}
         />

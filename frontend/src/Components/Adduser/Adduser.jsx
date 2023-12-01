@@ -21,11 +21,25 @@ const Adduser = () => {
   const [description, setDescription] = useState("");
   const [owner, setOwner] = useState();
   let { state, dispatch } = useContext(UserInfo);
-  console.log("this is  state", state);
   // console.log("this is  userdate state id", state?.userdata?._id);
   useEffect(() => {
     setOwner(state?.userdata?._id);
   }, []);
+
+  useEffect(() => {
+    if (state.editingContact) {
+      dispatch({ type: "setUpdateValue", payload: updateValue });
+    }
+  }, [state?.editingContact]);
+
+  let updateValue = () => {
+    setUsername(state?.editingContact?.username);
+    setEmail(state?.editingContact?.email);
+    setImage(state?.editingContact?.image);
+    setPhone(state?.editingContact?.phone);
+    setProfession(state?.editingContact?.profession);
+    setDescription(state?.editingContact?.description);
+  };
 
   let handleAdd = async () => {
     try {

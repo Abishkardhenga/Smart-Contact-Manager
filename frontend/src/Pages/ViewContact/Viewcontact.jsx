@@ -15,6 +15,7 @@ const Viewcontact = () => {
 
   useEffect(() => {
     dispatch({ type: "setGetContact", payload: GetAllContact });
+
     GetAllContact();
   }, [username]);
   let GetAllContact = async () => {
