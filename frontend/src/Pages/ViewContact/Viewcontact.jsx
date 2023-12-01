@@ -33,9 +33,7 @@ const Viewcontact = () => {
   let SearchFeature = async () => {
     try {
       let { data, status } = await axios.get(searchApi);
-      console.log("this is search feture data", data.searchedItem);
       setSearchCollection(data.searchedItem);
-      console.log("this is searchCollection", searchCollection);
     } catch (err) {
       console.log("this is err", err);
     }

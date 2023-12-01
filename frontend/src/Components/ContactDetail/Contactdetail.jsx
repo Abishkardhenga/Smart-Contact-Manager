@@ -10,9 +10,7 @@ import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 
 const Contactdetail = ({ item }) => {
-  // console.log("this is item", item);
   let { state, dispatch } = useContext(UserInfo);
-  let id = " ";
   let handleEdit = () => {};
   let deleteApi = " http://localhost:8000/deleteuser";
   let handleDelete = async (id) => {
@@ -31,9 +29,7 @@ const Contactdetail = ({ item }) => {
     }
   };
   let dataTransfer = (item) => {
-    console.log("this is datatransfer", item);
     dispatch({ type: "setProfileData", payload: item });
-    alert("button clicked");
   };
   return (
     <div className={styles.contactdetailContainer}>
@@ -57,7 +53,7 @@ const Contactdetail = ({ item }) => {
         />
         <MdDeleteForever
           onClick={() => {
-            handleDelete(item._id);
+            handleDelete(item?._id);
           }}
           className={styles.deleteIcon}
         />

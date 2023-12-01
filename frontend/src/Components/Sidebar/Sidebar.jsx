@@ -25,11 +25,11 @@ const Sidebar = () => {
 
         <p className={styles.sidebarPages}>View Contact</p>
       </Link>
-      <Link className={styles.iconWrapper} to={"profile"}>
+      {/* <Link className={styles.iconWrapper} to={"profile"}>
         <CgProfile className={styles.icons} />
 
         <p className={styles.sidebarPages}>Your Profile</p>
-      </Link>
+      </Link> */}
       <Link className={styles.iconWrapper} to={"setting"}>
         <IoMdSettings className={styles.icons} />
 
