@@ -31,7 +31,6 @@ const Adduser = () => {
   useEffect(() => {
     if (state.editingContact) {
       updateValue();
-      // dispatch({ type: "setUpdateValue", payload: updateValue });
     }
   }, [state?.editingContact]);
   console.log("thisis state", state);
@@ -67,6 +66,7 @@ const Adduser = () => {
   };
 
   let handleAdd = async () => {
+    dispatch({ type: "setEditMode", payload: false });
     if (state?.EditMode) {
       alert("on editmode hai ta");
       updateNote();
@@ -76,6 +76,8 @@ const Adduser = () => {
       setPhone("");
       setProfession("");
       setDescription("");
+      dispatch({ type: "setEditingContact", payload: null });
+
       toast.success("Succesfully updated the deatails", {
         position: "top-right",
         autoClose: 1000,
@@ -83,7 +85,6 @@ const Adduser = () => {
       return;
     }
     try {
-      dispatch({ type: "setEditMode", payload: false });
       const response = await axios.post(api, {
         username,
         email,
