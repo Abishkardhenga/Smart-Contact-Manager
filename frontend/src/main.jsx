@@ -14,6 +14,7 @@ import Adduser from "./Components/Adduser/Adduser.jsx";
 import { UserContexProvider } from "./utilis/UseContext/Usecontext.jsx";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import ProtectedRoutes from "./Pages/ProtecteRoutes/ProtectedRoutes.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <BrowserRouter>
@@ -22,11 +23,13 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/dashboard" element={<DashBoard />}>
-          <Route path="addcontact" element={<Adduser />} />
-          <Route path="setting" element={<Setting />} />
-          <Route path="viewcontact" element={<Viewcontact />} />
-          <Route path="profile" element={<Profile />} />
+        <Route element={<ProtectedRoutes />}>
+          <Route path="/dashboard" element={<DashBoard />}>
+            <Route path="addcontact" element={<Adduser />} />
+            <Route path="setting" element={<Setting />} />
+            <Route path="viewcontact" element={<Viewcontact />} />
+            <Route path="profile" element={<Profile />} />
+          </Route>
         </Route>
 
         <Route path="/Register" element={<Register />} />
