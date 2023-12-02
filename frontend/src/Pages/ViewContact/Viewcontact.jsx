@@ -22,7 +22,6 @@ const Viewcontact = () => {
     try {
       let { data, status } = await axios.get(api);
       setUserCollection(data.data);
-      console.log("this is data", data);
     } catch (err) {
       console.log("this is err", err);
     }

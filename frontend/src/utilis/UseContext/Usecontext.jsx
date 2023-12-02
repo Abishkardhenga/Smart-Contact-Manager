@@ -8,7 +8,6 @@ let user = {
   ProfileData: null,
   EditMode: false,
   editingContact: null,
-  updateValueFn: null,
 };
 
 let reducer = (state, action) => {
@@ -26,8 +25,6 @@ let reducer = (state, action) => {
 
     case "setEditingContact":
       return { ...state, editingContact: action.payload };
-    case "setUpdateValue":
-      return { ...state, updateValueFn: action.payload };
 
     default:
       return state;

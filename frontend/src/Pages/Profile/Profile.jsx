@@ -4,7 +4,6 @@ import { UserInfo } from "../../utilis/UseContext/Usecontext";
 
 const Profile = () => {
   let { state, dispatch } = useContext(UserInfo);
-  console.log("this is state ,", state.ProfileData);
   return (
     <div className={styles.profileContainer}>
       <div className={styles.imgWrapper}>

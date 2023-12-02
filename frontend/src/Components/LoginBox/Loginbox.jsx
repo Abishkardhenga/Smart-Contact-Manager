@@ -22,8 +22,6 @@ const Loginbox = () => {
           position: "top-right",
           autoClose: 1000,
         });
-        // alert("sucessfully logged in");
-        console.log("this is login data", data);
         dispatch({ type: "setUserdata", payload: data.data });
         navigate("/");
       }

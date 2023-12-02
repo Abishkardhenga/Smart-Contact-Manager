@@ -19,8 +19,6 @@ const Contactdetail = ({ item }) => {
       // console.log("this is handleEdit", item);
       dispatch({ type: "setEditingContact", payload: item });
       dispatch({ type: "setEditMode", payload: true });
-      state.updateValueFn();
-      console.log("this is state.updateValueFn();", state.updateValueFn());
 
       console.log("this is state", state);
     } catch (err) {

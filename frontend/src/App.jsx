@@ -4,10 +4,8 @@ import Navbar from "./Components/Navbar/Navbar";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { UserInfo } from "./utilis/UseContext/Usecontext";
 
-
 const App = () => {
   let { state, dispatch } = useContext(UserInfo);
-  console.log("this is state from useContext ", state);
 
   return (
     <div className="appContainer">

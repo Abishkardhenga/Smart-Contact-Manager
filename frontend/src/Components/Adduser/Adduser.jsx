@@ -47,8 +47,8 @@ const Adduser = () => {
 
   let updateNote = async () => {
     try {
-      const { data, status } = await axios.post(
-        `${updateApi}/${state?.editingContact?.owner}`,
+      const data = await axios.patch(
+        `${updateApi}/${state?.editingContact?._id}`,
         {
           username,
           email,
@@ -60,7 +60,7 @@ const Adduser = () => {
         }
       );
       console.log("this is data", data);
-      console.log("this is status", status);
+      console.log("this is editing Contact id", state?.editingContact?._id);
     } catch (err) {
       console.log(err);
     }
