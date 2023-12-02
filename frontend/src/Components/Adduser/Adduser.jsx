@@ -12,6 +12,9 @@ import { UserInfo } from "../../utilis/UseContext/Usecontext";
 import { toast } from "react-toastify";
 
 const Adduser = () => {
+  // const { state: editingItem } = useLocation();
+  // console.log("this is editingItem", editingItem);
+  let updateApi = "http://localhost:8000/edituser";
   let api = "http://localhost:8000/createuser";
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -21,16 +24,17 @@ const Adduser = () => {
   const [description, setDescription] = useState("");
   const [owner, setOwner] = useState();
   let { state, dispatch } = useContext(UserInfo);
-  // console.log("this is  userdate state id", state?.userdata?._id);
   useEffect(() => {
     setOwner(state?.userdata?._id);
   }, []);
 
   useEffect(() => {
     if (state.editingContact) {
-      dispatch({ type: "setUpdateValue", payload: updateValue });
+      updateValue();
+      // dispatch({ type: "setUpdateValue", payload: updateValue });
     }
   }, [state?.editingContact]);
+  console.log("thisis state", state);
 
   let updateValue = () => {
     setUsername(state?.editingContact?.username);
@@ -41,8 +45,45 @@ const Adduser = () => {
     setDescription(state?.editingContact?.description);
   };
 
-  let handleAdd = async () => {
+  let updateNote = async () => {
     try {
+      const { data, status } = await axios.post(
+        `${updateApi}/${state?.editingContact?.owner}`,
+        {
+          username,
+          email,
+          image,
+          phone,
+          profession,
+          description,
+          owner,
+        }
+      );
+      console.log("this is data", data);
+      console.log("this is status", status);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  let handleAdd = async () => {
+    if (state?.EditMode) {
+      alert("on editmode hai ta");
+      updateNote();
+      setUsername("");
+      setEmail("");
+      setImage("");
+      setPhone("");
+      setProfession("");
+      setDescription("");
+      toast.success("Succesfully updated the deatails", {
+        position: "top-right",
+        autoClose: 1000,
+      });
+      return;
+    }
+    try {
+      dispatch({ type: "setEditMode", payload: false });
       const response = await axios.post(api, {
         username,
         email,
@@ -170,8 +211,7 @@ const Adduser = () => {
         </div>
         <div className={styles.buttonWrapper}>
           <button onClick={handleAdd} className={styles.AddBtn}>
-            {" "}
-            Add{" "}
+            {state?.EditMode ? "Update" : "Add"}
           </button>
         </div>
       </div>

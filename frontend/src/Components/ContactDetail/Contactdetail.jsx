@@ -15,11 +15,17 @@ const Contactdetail = ({ item }) => {
   let editApi = `http://localhost:8000/edituser/${id}`;
   let deleteApi = " http://localhost:8000/deleteuser";
   let handleEdit = (item) => {
-    console.log("this is handleEdit", item);
-    dispatch({ type: "setEditingContact", payload: item });
+    try {
+      // console.log("this is handleEdit", item);
+      dispatch({ type: "setEditingContact", payload: item });
+      dispatch({ type: "setEditMode", payload: true });
+      state.updateValueFn();
+      console.log("this is state.updateValueFn();", state.updateValueFn());
 
-    console.log("this is state", state);
-    state.
+      console.log("this is state", state);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   let handleDelete = async (id) => {
@@ -54,12 +60,15 @@ const Contactdetail = ({ item }) => {
       <p className={styles.email}>{item?.email}</p>
       <p className={styles.phone}>{item?.phone}</p>
       <div className={styles.iconsWrapper}>
-        <FaUserEdit
-          onClick={() => {
-            handleEdit(item);
-          }}
-          className={styles.editIcon}
-        />
+        <Link to={"/dashboard/addcontact"}>
+          <FaUserEdit
+            onClick={() => {
+              handleEdit(item);
+            }}
+            className={styles.editIcon}
+          />
+        </Link>
+
         <MdDeleteForever
           onClick={() => {
             handleDelete(item?._id);
