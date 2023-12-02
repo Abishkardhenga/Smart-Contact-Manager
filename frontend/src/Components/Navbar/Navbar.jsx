@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import styles from "./Navbar.module.css";
 import { Link } from "react-router-dom";
+import { UserInfo } from "../../utilis/UseContext/Usecontext";
 
 const Navbar = () => {
+  let { state } = useContext(UserInfo);
+
   return (
     <div className={styles.navbarContainer}>
       <Link className={styles.link} to="/">
@@ -13,12 +16,20 @@ const Navbar = () => {
           Home
         </Link>
 
-        <Link to="/login" className={styles.subheading}>
-          Login
-        </Link>
-        <Link to="/register" className={styles.subheading}>
-          Signup
-        </Link>
+        {state.userdata ? (
+          <p className={styles.subheading}>{state.userdata.username} </p>
+        ) : (
+          <Link to="/login" className={styles.subheading}>
+            Login
+          </Link>
+        )}
+        {state.userdata ? (
+          <p className={styles.subheading}>Logout</p>
+        ) : (
+          <Link to="/register" className={styles.subheading}>
+            Signup
+          </Link>
+        )}
       </div>
     </div>
   );

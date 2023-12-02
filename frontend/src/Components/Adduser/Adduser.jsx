@@ -58,8 +58,8 @@ const Adduser = () => {
           owner,
         }
       );
-      console.log("this is data", data);
-      console.log("this is editing Contact id", state?.editingContact?._id);
+      // console.log("this is data", data);
+      // console.log("this is editing Contact id", state?.editingContact?._id);
     } catch (err) {
       console.log(err);
     }
@@ -68,7 +68,7 @@ const Adduser = () => {
   let handleAdd = async () => {
     dispatch({ type: "setEditMode", payload: false });
     if (state?.EditMode) {
-      alert("on editmode hai ta");
+      // alert("on editmode hai ta");
       updateNote();
       setUsername("");
       setEmail("");
