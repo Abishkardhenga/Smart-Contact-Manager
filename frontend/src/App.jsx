@@ -1,12 +1,11 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import "./App.css";
 import Navbar from "./Components/Navbar/Navbar";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { UserInfo } from "./utilis/UseContext/Usecontext";
+import axios from "axios";
 
 const App = () => {
-  let { state, dispatch } = useContext(UserInfo);
-
   return (
     <div className="appContainer">
       <Navbar />

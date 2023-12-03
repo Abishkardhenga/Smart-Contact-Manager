@@ -27,6 +27,7 @@ const Login = async (req, res) => {
     } else if (data.password !== password) {
       res.status(403).json({ message: "password is invalid ", status: false });
     } else {
+      req.session.user = data;
       res
         .status(200)
         .json({ message: "successfully loginnned", data, status: true });
@@ -36,4 +37,22 @@ const Login = async (req, res) => {
   }
 };
 
-module.exports = { Register, Login };
+const GetLoginUser = async (req, res) => {
+  try {
+    let data = req.session.user;
+    console.log(req.session);
+
+    if (data) {
+      res.status(200).json({ message: data, status: true });
+    } else {
+      res.status(500).json({
+        message: "Login session been expired try to login agian",
+        status: false,
+      });
+    }
+  } catch (err) {
+    res.status(403).json({ message: "Error occured", err, status: false });
+  }
+};
+
+module.exports = { Register, Login, GetLoginUser };

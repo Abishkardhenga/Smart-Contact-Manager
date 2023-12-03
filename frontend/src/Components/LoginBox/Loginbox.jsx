@@ -14,7 +14,13 @@ const Loginbox = () => {
   const navigate = useNavigate();
   let loginValidation = async () => {
     try {
-      const { data, status } = await axios.post(api, { email, password });
+      const { data, status } = await axios.post(
+        api,
+        { email, password },
+        {
+          withCredentials: true,
+        }
+      );
       if (status == "200") {
         setEmail("");
         setPassword("");
