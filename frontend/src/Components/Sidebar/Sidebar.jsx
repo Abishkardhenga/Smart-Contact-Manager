@@ -8,16 +8,25 @@ import { RiLogoutCircleRLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
 import { UserInfo } from "../../utilis/UseContext/Usecontext";
 import { toast } from "react-toastify";
+import axios from "axios";
 
 const Sidebar = () => {
   let { state, dispatch } = useContext(UserInfo);
+  console.log("this is state", state);
 
-  let handleLogout = () => {
-    dispatch({ type: "setUserdata", payload: null });
-    toast.success("Succesfully Logout", {
-      position: "top-right",
-      autoClose: 1000,
-    });
+  let api = "http://localhost:8000/logout";
+  let handleLogout = async (name) => {
+    try {
+      const data = await axios.post(api);
+      console.log("this is data", data);
+      dispatch({ type: "setUserdata", payload: null });
+      toast.success("Succesfully Logout", {
+        position: "top-right",
+        autoClose: 1000,
+      });
+    } catch (err) {
+      console.log("error", err);
+    }
   };
 
   useEffect(() => {

@@ -1,4 +1,4 @@
-const { Register, Login, GetLoginUser } = require("./controllers/Auth");
+const { Register, Login, Logout, GetLoginUser } = require("./controllers/Auth");
 const { UpdateOwner } = require("./controllers/owner");
 const {
   GetContact,
@@ -21,5 +21,5 @@ routes.patch("/edituser/:id", UpdateUser);
 routes.patch("/updateowner/:id", UpdateOwner);
 routes.get("/search/:username", SearchbyName);
 routes.get("/loginUser", GetLoginUser);
-
+routes.post("/logout", Logout);
 module.exports = routes;

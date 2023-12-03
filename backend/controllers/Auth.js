@@ -23,17 +23,34 @@ const Login = async (req, res) => {
     if (!data) {
       res
         .status(403)
-        .json({ message: "This Email is not registered ", status: false });
+        .json({ message: "This Email is not registered ", succees: false });
     } else if (data.password !== password) {
-      res.status(403).json({ message: "password is invalid ", status: false });
+      res.status(403).json({ message: "password is invalid ", success: false });
     } else {
       req.session.user = data;
+      console.log("this is req . session.user", data);
       res
         .status(200)
-        .json({ message: "successfully loginnned", data, status: true });
+        .json({ message: "successfully loginnned", data, success: true });
     }
   } catch (err) {
-    res.status(500).json({ message: "Error occured", err, status: false });
+    res.status(500).json({ message: "Error occured", err, success: false });
+  }
+};
+const Logout = async (req, res) => {
+  try {
+    req.session.destroy((err) => {
+      if (err) {
+        console.error("Error destroying session:", err);
+        res.status(500).json({ message: "Error logging out", status: false });
+      } else {
+        res.clearCookie("sessionID"); // Optional: Clear session cookie if using one
+        res.json({ message: "Logout successful", status: true });
+      }
+    });
+  } catch (err) {
+    console.log("this is err", err);
+    res.status(403).json({ message: err, succees: false });
   }
 };
 
@@ -55,4 +72,4 @@ const GetLoginUser = async (req, res) => {
   }
 };
 
-module.exports = { Register, Login, GetLoginUser };
+module.exports = { Register, Login, GetLoginUser, Logout };

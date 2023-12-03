@@ -7,7 +7,8 @@ import { UserInfo } from "../../utilis/UseContext/Usecontext";
 
 const Viewcontact = () => {
   let { state, dispatch } = useContext(UserInfo);
-  let api = `http://localhost:8000/userdetail?owner=${state.userdata._id}`;
+  console.log("this is state", state);
+  let api = `http://localhost:8000/userdetail?owner=${state.userdata.message._id}`;
   let [UserCollection, setUserCollection] = useState([]);
   let [username, setUsername] = useState("");
   let [searchCollection, setSearchCollection] = useState([]);
