@@ -7,11 +7,12 @@ import { UserInfo } from "../../utilis/UseContext/Usecontext";
 
 const Viewcontact = () => {
   let { state, dispatch } = useContext(UserInfo);
-  let api = "http://localhost:8000/userdetail";
+  let api = `http://localhost:8000/userdetail?owner=${state.userdata._id}`;
   let [UserCollection, setUserCollection] = useState([]);
   let [username, setUsername] = useState("");
   let [searchCollection, setSearchCollection] = useState([]);
   let searchApi = `http://localhost:8000/search/${username}`;
+  console.log("this is state", state);
 
   useEffect(() => {
     dispatch({ type: "setGetContact", payload: GetAllContact });

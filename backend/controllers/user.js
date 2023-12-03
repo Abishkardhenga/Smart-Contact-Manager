@@ -19,7 +19,7 @@ const CreateDetail = async (req, res) => {
 };
 const GetContact = async (req, res) => {
   try {
-    let data = await owner.find();
+    let data = await owner.find({ ...req.query });
 
     if (!data) {
       res.status(400).json({ message: "data not found ", success: false });
