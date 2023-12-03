@@ -24,7 +24,14 @@ const Navbar = () => {
           </Link>
         )}
         {state.userdata ? (
-          <p className={styles.subheading}>Logout</p>
+          <p
+            onClick={() => {
+              state.LogoutFn();
+            }}
+            className={styles.subheading}
+          >
+            Logout
+          </p>
         ) : (
           <Link to="/register" className={styles.subheading}>
             Signup

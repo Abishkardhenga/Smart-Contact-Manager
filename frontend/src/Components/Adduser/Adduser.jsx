@@ -78,7 +78,7 @@ const Adduser = () => {
       setDescription("");
       dispatch({ type: "setEditingContact", payload: null });
 
-      toast.success("Succesfully updated the deatails", {
+      toast.success("Succesfully updated the details", {
         position: "top-right",
         autoClose: 1000,
       });

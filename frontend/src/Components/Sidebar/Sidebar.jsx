@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import styles from "./Sidebar.module.css";
 import { AiFillHome } from "react-icons/ai";
 import { IoIosPersonAdd, IoMdSettings } from "react-icons/io";
@@ -7,14 +7,22 @@ import { CgProfile } from "react-icons/cg";
 import { RiLogoutCircleRLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
 import { UserInfo } from "../../utilis/UseContext/Usecontext";
+import { toast } from "react-toastify";
 
 const Sidebar = () => {
   let { state, dispatch } = useContext(UserInfo);
 
   let handleLogout = () => {
-    alert("Logout successfully");
     dispatch({ type: "setUserdata", payload: null });
+    toast.success("Succesfully Logout", {
+      position: "top-right",
+      autoClose: 1000,
+    });
   };
+
+  useEffect(() => {
+    dispatch({ type: "setLogoutFn", payload: handleLogout });
+  }, [state.userdata]);
 
   return (
     <div className={styles.sidebarContainer}>
@@ -43,7 +51,12 @@ const Sidebar = () => {
 
         <p className={styles.sidebarPages}>Setting</p>
       </Link>
-      <div onClick={handleLogout} className={styles.iconWrapper}>
+      <div
+        onClick={() => {
+          handleLogout();
+        }}
+        className={styles.iconWrapper}
+      >
         <RiLogoutCircleRLine className={styles.icons} />
 
         <p className={styles.sidebarPages}>Logout</p>
